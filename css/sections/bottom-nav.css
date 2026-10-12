@@ -1,0 +1,158 @@
+/* ===================================
+     🧭 Bottom Navigation - ۳ آیتم
+     =================================== */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--color-glass-border);
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 8px 0 12px 0;
+    height: auto;
+    min-height: 70px;
+}
+
+.bottom-nav__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: var(--color-text-muted);
+    font-family: var(--font-family-persian);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 6px 16px;
+    transition: all var(--transition-fast);
+    position: relative;
+    flex: 1;
+    max-width: 100px;
+}
+
+.bottom-nav__item svg {
+    width: 22px;
+    height: 22px;
+    transition: all var(--transition-fast);
+}
+
+.bottom-nav__item:hover {
+    color: var(--color-accent);
+}
+
+.bottom-nav__item.is-active {
+    color: var(--color-accent);
+}
+
+.bottom-nav__item.is-active svg {
+    transform: scale(1.1);
+}
+
+/* آیکون زی‌چت - برجسته و بزرگتر */
+.bottom-nav__item--zichat {
+    margin-top: -20px;
+    padding: 10px 20px;
+    max-width: 110px;
+}
+
+.bottom-nav__zichat-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-accent), #d4a017);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 4px 16px rgba(244, 208, 63, 0.4),
+        0 0 0 3px rgba(244, 208, 63, 0.2);
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.bottom-nav__zichat-icon svg {
+    width: 24px;
+    height: 24px;
+    color: #0a0e27;
+    stroke-width: 2.5;
+}
+
+.bottom-nav__item--zichat:hover .bottom-nav__zichat-icon {
+    transform: scale(1.1);
+    box-shadow:
+        0 6px 20px rgba(244, 208, 63, 0.6),
+        0 0 0 4px rgba(244, 208, 63, 0.3);
+}
+
+.bottom-nav__item--zichat:active .bottom-nav__zichat-icon {
+    transform: scale(0.95);
+}
+
+/* انیمیشن ضربان */
+.bottom-nav__zichat-icon::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-accent), #d4a017);
+    z-index: -1;
+    opacity: 0;
+    animation: nav-pulse 2s ease-in-out infinite;
+}
+
+@keyframes nav-pulse {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.1);
+    }
+}
+
+/* Responsive - موبایل */
+@media (max-width: 767px) {
+    .bottom-nav {
+        padding: 6px 0 10px 0;
+        min-height: 64px;
+    }
+
+    .bottom-nav__item {
+        font-size: 10px;
+        padding: 4px 12px;
+    }
+
+    .bottom-nav__item svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .bottom-nav__item--zichat {
+        margin-top: -16px;
+    }
+
+    .bottom-nav__zichat-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .bottom-nav__zichat-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .bottom-nav__zichat-icon::after {
+        animation: none;
+    }
+}

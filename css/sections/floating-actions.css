@@ -1,0 +1,166 @@
+
+.connect-section {
+    text-align: center;
+    padding: var(--spacing-3xl) var(--spacing-xl);
+    position: relative;
+
+
+}
+
+.connect-title {
+    font-family: var(--font-family-persian);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-xl) 0;
+    direction: ltr;
+    letter-spacing: 0.5px;
+}
+
+.connect-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+/* آیکون دایره‌ای شیشه‌ای */
+.connect-icon {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: var(--radius-full);
+    background: var(--color-glass-bg);
+    border: 1px solid var(--color-glass-border);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: var(--transition-normal);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.connect-icon__svg {
+    width: 22px;
+    height: 22px;
+    transition: var(--transition-fast);
+}
+
+/* Hover State */
+.connect-icon:hover {
+    background: var(--color-accent-soft);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.connect-icon:hover .connect-icon__svg {
+    transform: scale(1.1);
+}
+
+/* Active State */
+.connect-icon:active {
+    transform: translateY(-2px) scale(0.95);
+}
+
+/* Focus State (Accessibility) */
+.connect-icon:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* Tooltip */
+.connect-icon::after {
+    content: attr(title);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    font-family: var(--font-family-persian);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    background: var(--color-bg-secondary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-glass-border);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-fast);
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: var(--shadow-sm);
+}
+
+.connect-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1023px) {
+    .connect-section {
+        padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+
+    .connect-icons {
+        gap: var(--spacing-sm);
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 767px) {
+    .connect-section {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .connect-title {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .connect-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .connect-icon__svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .connect-icons {
+        gap: var(--spacing-sm);
+    }
+}
+
+/* Responsive - Very Small */
+@media (max-width: 360px) {
+    .connect-icon {
+        width: 65px;
+        height: 65px;
+    }
+
+    .connect-icon__svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Reduced Motion (Accessibility) */
+@media (prefers-reduced-motion: reduce) {
+    .connect-icon,
+    .connect-icon__svg,
+    .connect-icon::after {
+        transition: none;
+    }
+
+    .connect-icon:hover {
+        transform: none;
+    }
+}

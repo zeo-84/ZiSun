@@ -1,0 +1,440 @@
+/* ===================================
+     💬 Chat Page Styles - صفحه چت
+     هماهنگ با تم دارک و لایت
+     =================================== */
+
+/* ===================================
+     Header - هدر شیشه‌ای
+     =================================== */
+.chat-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-glass-border);
+    padding: 16px 20px;
+    transition: background var(--transition-normal), border-color var(--transition-normal);
+}
+
+.chat-header__container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* دکمه بازگشت زیبا و شیشه‌ای */
+.chat-header__back {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-glass-bg);
+    border: 1px solid var(--color-glass-border);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.chat-header__back:hover {
+    background: var(--color-accent);
+    color: #0a0e27;
+    border-color: var(--color-accent);
+    transform: translateX(-4px);
+    box-shadow: 0 4px 16px rgba(244, 208, 63, 0.3);
+}
+
+.chat-header__back svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* پروفایل */
+.chat-header__profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.chat-header__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--color-accent);
+    box-shadow: 0 4px 12px rgba(244, 208, 63, 0.3);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-glass-bg);
+}
+
+.chat-header__avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.chat-header__info {
+    flex: 1;
+}
+
+.chat-header__title {
+    font-family: var(--font-family-persian);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.chat-header__status {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    animation: pulse-green 2s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+/* ===================================
+     بدنه چت
+     =================================== */
+.chat-body {
+    flex: 1;
+    padding: 24px 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+    min-height: calc(100vh - 200px);
+}
+
+/* اسکرول‌بار زیبا */
+.chat-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-body::-webkit-scrollbar-thumb {
+    background: var(--color-glass-border);
+    border-radius: 3px;
+}
+
+.chat-body::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}
+
+/* ===================================
+     پیام‌ها
+     =================================== */
+.chat-message {
+    display: flex;
+    gap: 12px;
+    animation: messageSlideIn 0.4s ease;
+    max-width: 85%;
+    align-items: flex-start;
+}
+
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-message.bot-message {
+    align-self: flex-start;
+}
+
+.chat-message.user-message {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+/* ===================================
+     آواتار پیام‌ها - وسط‌چین دقیق
+     =================================== */
+.chat-message__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--color-accent);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-glass-bg);
+    position: relative;
+}
+
+/* تصویر پروفایل بات */
+.chat-message__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* آیکون SVG کاربر */
+.user-avatar-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--color-accent);
+    stroke-width: 2;
+    display: block;
+}
+
+/* محتوای پیام */
+.chat-message__content {
+    flex: 1;
+    background: var(--color-glass-bg);
+    border: 1px solid var(--color-glass-border);
+    border-radius: 16px;
+    padding: 12px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    position: relative;
+}
+
+.chat-message.user-message .chat-message__content {
+    background: linear-gradient(135deg, rgba(244, 208, 63, 0.15), rgba(212, 160, 23, 0.15));
+    border-color: rgba(244, 208, 63, 0.3);
+}
+
+.chat-message__content strong {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.chat-message__time {
+    display: block;
+    font-size: 11px;
+    color: var(--color-text-muted);
+    margin-top: 6px;
+    text-align: left;
+    direction: ltr;
+}
+
+/* ===================================
+     بخش ورودی + سوالات متداول
+     =================================== */
+.chat-input-area {
+    position: sticky;
+    bottom: 0;
+    padding: 12px 20px 16px;
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--color-glass-border);
+    z-index: 10;
+}
+
+.chat-input-container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* سوالات متداول - اسکرول افقی */
+.quick-questions-scroll {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 4px 0;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.quick-questions-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.quick-questions-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.quick-questions-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-glass-border);
+    border-radius: 2px;
+}
+
+.chat-question-btn {
+    flex-shrink: 0;
+    background: var(--color-glass-bg);
+    border: 1px solid var(--color-glass-border);
+    color: var(--color-text-primary);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-family: var(--font-family-persian);
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all var(--transition-normal);
+}
+
+.chat-question-btn:hover {
+    background: var(--color-accent-soft);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(244, 208, 63, 0.2);
+}
+
+/* کادر تایپ */
+.chat-input-wrapper {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.chat-input {
+    flex: 1;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-glass-border);
+    border-radius: 24px;
+    padding: 12px 20px;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-persian);
+    font-size: 14px;
+    outline: none;
+    transition: all var(--transition-normal);
+}
+
+.chat-input:focus {
+    border-color: var(--color-accent);
+    background: var(--color-bg-primary);
+    box-shadow: 0 0 0 3px rgba(244, 208, 63, 0.1);
+}
+
+.chat-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.chat-send-btn {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-accent), #d4a017);
+    border: none;
+    border-radius: 50%;
+    color: #0a0e27;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+    flex-shrink: 0;
+}
+
+.chat-send-btn:hover {
+    transform: scale(1.05) rotate(-5deg);
+    box-shadow: 0 4px 16px rgba(244, 208, 63, 0.4);
+}
+
+.chat-send-btn:active {
+    transform: scale(0.95);
+}
+
+.chat-send-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ===================================
+     Responsive - موبایل
+     =================================== */
+@media (max-width: 767px) {
+    .chat-header {
+        padding: 12px 16px;
+    }
+
+    .chat-header__back {
+        width: 40px;
+        height: 40px;
+    }
+
+    .chat-header__avatar {
+        width: 42px;
+        height: 42px;
+    }
+
+    .chat-body {
+        padding: 16px 12px;
+        gap: 16px;
+    }
+
+    .chat-message {
+        max-width: 90%;
+    }
+
+    .chat-input-area {
+        padding: 10px 16px 12px;
+    }
+
+    .chat-question-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
+    .chat-send-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    .chat-message__avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .user-avatar-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ===================================
+     Reduced Motion
+     =================================== */
+@media (prefers-reduced-motion: reduce) {
+    .chat-message,
+    .status-dot,
+    .chat-question-btn,
+    .chat-send-btn {
+        animation: none;
+        transition: none;
+    }
+}

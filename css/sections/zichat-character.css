@@ -1,0 +1,424 @@
+/* ===================================
+      ZiChat Character - کاراکتر انیمیشنی
+     هماهنگ با تم دارک و لایت
+     =================================== */
+
+.zichat-section {
+    text-align: center;
+    padding: 32px 24px 40px;
+    padding-bottom: calc(40px + var(--bottom-nav-height, 80px)); /* ← فاصله از Bottom Nav */
+    position: relative;
+    background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+    transition: background var(--transition-normal);
+}
+
+[data-theme="light"] .zichat-section {
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* کاراکتر ربات */
+.zichat-character {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 16px;
+    cursor: pointer;
+    animation: zichat-bounce 2s ease-in-out infinite;
+}
+
+@keyframes zichat-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* بدن ربات */
+.zichat-body {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #f4d03f 0%, #d4a017 100%);
+    border-radius: 50%;
+    position: relative;
+    box-shadow:
+        0 8px 32px rgba(244, 208, 63, 0.4),
+        inset 0 -8px 16px rgba(0, 0, 0, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+/* چشم‌ها */
+.zichat-eyes {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+}
+
+.zichat-eye {
+    width: 18px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    animation: zichat-blink 4s ease-in-out infinite;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes zichat-blink {
+    0%, 94%, 100% { transform: scaleY(1); }
+    97% { transform: scaleY(0.1); }
+}
+
+.zichat-pupil {
+    width: 10px;
+    height: 10px;
+    background: #0a0e27;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: zichat-look 3s ease-in-out infinite;
+}
+
+@keyframes zichat-look {
+    0%, 100% { transform: translate(-50%, -50%); }
+    25% { transform: translate(-30%, -50%); }
+    75% { transform: translate(-70%, -50%); }
+}
+
+/* لبخند */
+.zichat-mouth {
+    position: absolute;
+    bottom: 28%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 26px;
+    height: 13px;
+    border-bottom: 3px solid #0a0e27;
+    border-radius: 0 0 50% 50%;
+}
+
+/* آنتن */
+.zichat-antenna {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 16px;
+    background: #f4d03f;
+}
+
+.zichat-antenna-ball {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #f4d03f;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: zichat-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes zichat-glow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(244, 208, 63, 0.8);
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(244, 208, 63, 1);
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+/* گونه‌های صورتی */
+.zichat-cheek {
+    position: absolute;
+    top: 50%;
+    width: 14px;
+    height: 8px;
+    background: rgba(255, 182, 193, 0.6);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.zichat-cheek--left {
+    left: 15%;
+}
+
+.zichat-cheek--right {
+    right: 15%;
+}
+
+/* حباب گفتگو */
+.zichat-bubble {
+    position: absolute;
+    top: -16px;
+    right: -180px;
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--color-glass-border);
+    border-radius: 16px;
+    padding: 10px 14px;
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    animation: zichat-fadeIn 0.5s ease;
+    box-shadow: var(--shadow-md);
+}
+
+[data-theme="light"] .zichat-bubble {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.zichat-bubble::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid var(--color-glass-border);
+}
+
+[data-theme="light"] .zichat-bubble::before {
+    border-right-color: rgba(0, 0, 0, 0.1);
+}
+
+@keyframes zichat-fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.zichat-typing-text {
+    color: var(--color-text-primary);
+    font-family: var(--font-family-persian);
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.zichat-cursor {
+    color: var(--color-accent);
+    font-size: 14px;
+    font-weight: bold;
+    animation: zichat-cursor-blink 0.8s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes zichat-cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* عنوان زیر ربات */
+.zichat-title {
+    font-family: var(--font-family-persian);
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0 0 6px 0;
+    transition: color var(--transition-normal);
+}
+
+.zichat-subtitle {
+    font-family: var(--font-family-persian);
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    color: var(--color-text-secondary);
+    margin: 0 0 20px 0;
+    transition: color var(--transition-normal);
+}
+
+/* دکمه باز کردن چت - واضح و بالا */
+.zichat-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--color-accent), #d4a017);
+    color: #0a0e27;
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-family-persian);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 8px 24px rgba(244, 208, 63, 0.4),
+        0 0 0 3px rgba(244, 208, 63, 0.2);
+    letter-spacing: 0.3px;
+    margin-bottom: 16px; /* ← فاصله از Bottom Nav */
+    position: relative;
+    z-index: 10;
+}
+
+.zichat-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+        0 12px 32px rgba(244, 208, 63, 0.6),
+        0 0 0 4px rgba(244, 208, 63, 0.3);
+}
+
+.zichat-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* انیمیشن ضربان برای جلب توجه */
+.zichat-button::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--color-accent), #d4a017);
+    z-index: -1;
+    opacity: 0;
+    animation: zichat-pulse 2s ease-in-out infinite;
+}
+
+@keyframes zichat-pulse {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.05);
+    }
+}
+
+/* Responsive - تبلت */
+@media (max-width: 1023px) {
+    .zichat-bubble {
+        right: -140px;
+        max-width: 160px;
+    }
+
+    .zichat-bubble::before {
+        border-right-width: 6px;
+    }
+}
+
+/* Responsive - موبایل */
+@media (max-width: 767px) {
+    .zichat-section {
+        padding: 24px 16px 32px;
+        padding-bottom: calc(32px + var(--bottom-nav-height, 80px));
+    }
+
+    .zichat-body {
+        width: 70px;
+        height: 70px;
+    }
+
+    .zichat-eyes {
+        gap: 12px;
+    }
+
+    .zichat-eye {
+        width: 14px;
+        height: 18px;
+    }
+
+    .zichat-pupil {
+        width: 8px;
+        height: 8px;
+    }
+
+    .zichat-mouth {
+        width: 20px;
+        height: 10px;
+    }
+
+    .zichat-antenna {
+        top: -12px;
+        height: 12px;
+    }
+
+    .zichat-antenna-ball {
+        width: 10px;
+        height: 10px;
+        top: -6px;
+    }
+
+    .zichat-bubble {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin: 16px auto 0;
+        max-width: 260px;
+    }
+
+    .zichat-bubble::before {
+        display: none;
+    }
+
+    .zichat-character {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .zichat-title {
+        font-size: 1rem;
+    }
+
+    .zichat-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .zichat-button {
+        padding: 14px 28px;
+        font-size: 14px;
+        margin-bottom: 12px;
+        box-shadow:
+            0 6px 20px rgba(244, 208, 63, 0.4),
+            0 0 0 3px rgba(244, 208, 63, 0.2);
+    }
+
+    .zichat-button:hover {
+        box-shadow:
+            0 10px 28px rgba(244, 208, 63, 0.6),
+            0 0 0 4px rgba(244, 208, 63, 0.3);
+    }
+}
+
+/* خیلی کوچک */
+@media (max-width: 360px) {
+    .zichat-section {
+        padding: 20px 12px 28px;
+        padding-bottom: calc(28px + var(--bottom-nav-height, 80px));
+    }
+
+    .zichat-button {
+        padding: 12px 24px;
+        font-size: 13px;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .zichat-character,
+    .zichat-eye,
+    .zichat-pupil,
+    .zichat-antenna-ball,
+    .zichat-cursor,
+    .zichat-button::after {
+        animation: none;
+    }
+}

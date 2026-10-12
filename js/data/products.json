@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "وست عروسکی",
+      "price": 2400000,
+      "image": "assets/images/p01.webp",
+      "category": "پیراهن"
+    },
+    {
+      "id": 2,
+      "name": "وست و شلوار",
+      "price": 1800000,
+      "image": "assets/images/p03.webp",
+      "category": "دامن"
+    },
+    {
+      "id": 3,
+      "name": "پیراهن تابستانه",
+      "price": 2100000,
+      "image": "assets/images/p02.webp",
+      "category": "کت"
+    },
+    {
+      "id": 4,
+      "name": "دامن آفتاب",
+      "price": 1500000,
+      "image": "assets/images/p05.webp",
+      "category": "بلوز"
+    },
+    {
+      "id": 5,
+      "name": "شومیز مانتویی",
+      "price": 1500000,
+      "image": "assets/images/p04.webp",
+      "category": "بلوز"
+    },
+     {
+       "id": 6,
+       "name": "کت جین",
+       "price": 1500000,
+       "image": "assets/images/p06.webp",
+       "category": "بلوز"
+     }
+  ]
+}

@@ -1,0 +1,261 @@
+/* ===================================
+   🛍️ Products Section - کارت افقی
+   =================================== */
+
+/* 1. Section Container */
+.products {
+    padding: var(--spacing-2xl) var(--spacing-md);
+    padding-bottom: calc(var(--bottom-nav-height) + var(--spacing-2xl));
+    background: linear-gradient(180deg, var(--galaxy-1) 0%, var(--galaxy-2) 100%);
+    min-height: 100vh;
+}
+
+/* 2. Header */
+.products__header {
+    max-width: 600px;
+    margin-inline: auto;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.products__title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-xs) 0;
+    letter-spacing: 0.03em;
+}
+
+.products__divider {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    margin: 0 auto var(--spacing-sm) auto;
+}
+
+.products__subtitle {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: clamp(0.7rem, 2vw, 0.85rem);
+    font-weight: 300;
+    color: var(--color-text-muted);
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+/* 3. لیست محصولات */
+.products__grid {
+    max-width: 600px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* 4. کارت محصول - ترتیب: اسم | عکس | قلب */
+.product-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease both;
+}
+
+.product-card:hover {
+    background: var(--color-glass-bg-hover);
+    border-color: var(--color-glass-border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* تاخیر انیمیشن */
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+.product-card:nth-child(4) { animation-delay: 0.4s; }
+.product-card:nth-child(5) { animation-delay: 0.5s; }
+.product-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 5. اطلاعات محصول - سمت راست (اول در RTL) */
+.product-card__info {
+    flex: 1;
+    min-width: 0;
+    order: 1; /* سمت راست */
+}
+
+.product-card__name {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+
+    /* برش متن طولانی */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 6. تصویر محصول - وسط */
+.product-card__image-wrapper {
+    flex-shrink: 0;
+    width: 85px;
+    height: 85px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    background: var(--color-bg-tertiary);
+    order: 2; /* وسط */
+}
+
+.product-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* هر عکسی با هر سایزی کامل پر می‌کنه */
+    object-position: center;
+    transition: transform var(--transition-slow);
+}
+
+.product-card:hover .product-card__image {
+    transform: scale(1.08);
+}
+
+/* 7. دکمه قلب - سمت چپ (آخر در RTL) */
+.product-card__like {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    -webkit-tap-highlight-color: transparent;
+    order: 3; /* سمت چپ */
+}
+
+/* 5. دکمه قلب - سمت راست (اول در RTL) */
+.product-card__like {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    -webkit-tap-highlight-color: transparent;
+    order: 1; /* ✅ سمت راست */
+}
+
+/* 6. اطلاعات محصول - وسط */
+.product-card__info {
+    flex: 1;
+    min-width: 0;
+    order: 2; /* ✅ وسط */
+}
+
+/* 7. تصویر محصول - سمت چپ (آخر در RTL) */
+.product-card__image-wrapper {
+    flex-shrink: 0;
+    width: 85px;
+    height: 85px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    background: var(--color-bg-tertiary);
+    order: 3; /* ✅ سمت چپ */
+}
+
+.product-card__like svg {
+    width: 18px;
+    height: 18px;
+    stroke: rgba(26, 1, 1, 0.7);
+    stroke-width: 2;
+    fill: none;
+    transition: all var(--transition-normal);
+}
+
+/* حالت لایک شده - قرمز */
+.product-card__like.is-liked {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.product-card__like.is-liked svg {
+    stroke: #ef4444;
+    fill: #ef4444;
+    animation: heartPop 0.4s ease;
+}
+
+@keyframes heartPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* 8. Responsive - موبایل */
+@media (max-width: 767px) {
+    .products {
+        padding: var(--spacing-xl) var(--spacing-sm);
+    }
+
+    .product-card {
+        padding: var(--spacing-xs);
+        gap: var(--spacing-sm);
+    }
+
+    .product-card__image-wrapper {
+        width: 75px;
+        height: 75px;
+    }
+
+    .product-card__name {
+        font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+    }
+
+    .product-card__like {
+        width: 32px;
+        height: 32px;
+    }
+
+    .product-card__like svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* 9. Tablet & Desktop */
+@media (min-width: 768px) {
+    .products__grid {
+        max-width: 550px;
+    }
+}

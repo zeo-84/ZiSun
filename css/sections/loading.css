@@ -1,0 +1,133 @@
+/* ===================================
+   ⏳ Loading Screen
+   =================================== */
+
+/* 1. Loading Container - تمام صفحه */
+.loading-screen {
+    position: fixed;
+    inset: 0; /* shorthand برای top/right/bottom/left: 0 */
+    background: radial-gradient(ellipse at center, var(--galaxy-2) 0%, var(--galaxy-1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-loading);
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    overflow: hidden;
+}
+
+/* وقتی لود تموم شد، مخفی می‌شه */
+.loading-screen.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* 2. ستاره‌های تزئینی پس‌زمینه */
+.loading-screen::before,
+.loading-screen::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: var(--galaxy-star);
+    opacity: 0.6;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.loading-screen::before {
+    width: 2px;
+    height: 2px;
+    top: 20%;
+    left: 30%;
+    box-shadow:
+        100px 50px 0 rgba(255,255,255,0.4),
+        -80px 120px 0 rgba(255,255,255,0.3),
+        150px -60px 0 rgba(255,255,255,0.5),
+        -120px -80px 0 rgba(255,255,255,0.4),
+        200px 100px 0 rgba(255,255,255,0.3);
+}
+
+.loading-screen::after {
+    width: 3px;
+    height: 3px;
+    bottom: 25%;
+    right: 25%;
+    box-shadow:
+        -100px -50px 0 rgba(255,255,255,0.4),
+        80px -120px 0 rgba(255,255,255,0.3),
+        -150px 60px 0 rgba(255,255,255,0.5),
+        120px 80px 0 rgba(255,255,255,0.4);
+    animation-delay: 1.5s;
+}
+
+/* 3. لوگوی خورشید چرخان */
+.loading__sun {
+    width: 80px;
+    height: 80px;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-lg);
+    animation: rotate 4s linear infinite;
+    filter: drop-shadow(0 0 20px rgba(244, 208, 63, 0.5)); /* هاله نورانی طلایی */
+}
+
+/* 4. نام برند */
+.loading__logo {
+    font-family: var(--font-family-english);
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: 0.05em;
+    animation: fadeIn 1s ease 0.3s both;
+}
+
+/* 5. Progress Bar Container */
+.loading__progress {
+    width: 200px;
+    height: 3px;
+    background: var(--color-glass-bg);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-bottom: var(--spacing-md);
+    animation: fadeIn 1s ease 0.5s both;
+}
+
+/* 6. Progress Bar Fill */
+.loading__progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-accent), #fff);
+    border-radius: var(--radius-full);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px var(--color-accent); /* درخشش */
+}
+
+/* 7. تگ‌لاین */
+.loading__tagline {
+    font-family: var(--font-family-cursive);
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-md);
+    animation: fadeIn 1s ease 0.7s both;
+    letter-spacing: 0.02em;
+}
+
+/* 8. Responsive - موبایل */
+@media (max-width: 767px) {
+    .loading__sun {
+        width: 60px;
+        height: 60px;
+    }
+
+    .loading__logo {
+        font-size: var(--font-size-3xl);
+    }
+
+    .loading__progress {
+        width: 150px;
+    }
+
+    .loading__tagline {
+        font-size: var(--font-size-base);
+    }
+}

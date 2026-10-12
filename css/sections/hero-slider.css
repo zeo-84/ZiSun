@@ -1,0 +1,153 @@
+/* ===================================
+    ZiSun Swiper Slider - عریض‌تر و تنظیم دقیق
+   =================================== */
+
+/* Container اصلی - تیره و شیشه‌ای */
+.ziSun-slider {
+    width: 100% !important;
+    max-width: 620px !important;
+    margin: 32px auto 0 !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: #1a1040 !important;
+    position: relative !important;
+}
+
+/* اسلایدها */
+.ziSun-slider .swiper {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.ziSun-slider .swiper-slide {
+    position: relative !important;
+    width: 100% !important;
+    height: 300px !important; /* ← افزایش از 280px به 300px */
+    overflow: hidden !important;
+    background: #0a0e27 !important;
+}
+
+.ziSun-slider .swiper-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    transition: transform 6s ease !important;
+}
+
+/* زوم ملایم */
+.ziSun-slider .swiper-slide-active img {
+    transform: scale(1.05) !important;
+}
+
+/* Pagination - نقطه‌های پایین */
+.ziSun-slider .swiper-pagination {
+    bottom: 12px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    display: flex !important;
+    gap: 6px !important;
+    padding: 6px 12px !important;
+    background: rgba(10, 14, 39, 0.5) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.ziSun-slider .swiper-pagination-bullet {
+    width: 6px !important;
+    height: 6px !important;
+    background: rgba(255, 255, 255, 0.4) !important;
+    opacity: 1 !important;
+    transition: all 0.4s ease !important;
+    margin: 0 !important;
+    border-radius: 50% !important;
+}
+
+.ziSun-slider .swiper-pagination-bullet-active {
+    background: #f4d03f !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    box-shadow: 0 0 8px rgba(244, 208, 63, 0.6) !important;
+}
+
+/* Navigation - دکمه‌های کوچک */
+.ziSun-slider .swiper-button-prev,
+.ziSun-slider .swiper-button-next {
+    width: 32px !important;
+    height: 32px !important;
+    background: rgba(10, 14, 39, 0.7) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 50% !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: all 0.3s ease !important;
+    top: 60% !important;
+    transform: translateY(-50%) !important;
+}
+
+.ziSun-slider .swiper-button-prev {
+    right: 12px !important;
+    left: auto !important;
+}
+
+.ziSun-slider .swiper-button-next {
+    left: 12px !important;
+    right: auto !important;
+}
+
+.ziSun-slider .swiper-button-prev:hover,
+.ziSun-slider .swiper-button-next:hover {
+    background: rgba(244, 208, 63, 0.3) !important;
+    border-color: #f4d03f !important;
+    transform: translateY(-50%) scale(1.1) !important;
+}
+
+.ziSun-slider .swiper-button-prev::after,
+.ziSun-slider .swiper-button-next::after {
+    font-size: 14px !important;
+    font-weight: bold !important;
+    color: inherit !important;
+}
+
+/* Responsive - موبایل */
+@media (max-width: 767px) {
+    .ziSun-slider {
+        max-width: calc(100% - 16px) !important; /* ← کاهش margin برای عریض‌تر شدن */
+        margin: 24px 8px 0 !important; /* ← از 12px به 8px */
+        border-radius: 16px !important;
+    }
+
+    .ziSun-slider .swiper-slide {
+        height: 220px !important; /* ← افزایش از 220px به 240px */
+
+    }
+
+    .ziSun-slider .swiper-button-prev,
+    .ziSun-slider .swiper-button-next {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    .ziSun-slider .swiper-button-prev::after,
+    .ziSun-slider .swiper-button-next::after {
+        font-size: 12px !important;
+    }
+}
+
+/* جلوگیری از نشت متن */
+.products__grid {
+    position: relative;
+    z-index: 1;
+}
+
+.product-card {
+    position: relative;
+    overflow: hidden;
+}

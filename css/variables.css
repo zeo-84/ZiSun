@@ -1,0 +1,135 @@
+/* ===================================
+   🎨 Design Tokens - ZiSun Brand
+   =================================== */
+
+:root {
+    /*  Dark Theme (پیش‌فرض - کهکشانی) */
+    --color-bg-primary: #0a0e27;
+    --color-bg-secondary: #151b3d;
+    --color-bg-tertiary: #1e2550;
+
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #b8c5d6;
+    --color-text-muted: #6b7a99;
+
+    --color-accent: #f4d03f;
+    --color-accent-soft: rgba(244, 208, 63, 0.1);
+
+    /* 🪟 Glass Effects - Dark */
+    --color-glass-bg: rgba(255, 255, 255, 0.05);
+    --color-glass-bg-hover: rgba(255, 255, 255, 0.1);
+    --color-glass-border: rgba(255, 255, 255, 0.1);
+    --color-glass-border-hover: rgba(255, 255, 255, 0.2);
+
+    /* 🌌 Galaxy Colors (برای پس‌زمینه Hero) */
+    --galaxy-1: #0a0e27;
+    --galaxy-2: #1a1f4d;
+    --galaxy-3: #2d3561;
+    --galaxy-star: #ffffff;
+
+    /* 🎭 Semantic Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+
+    /* 🔤 Typography */
+    --font-family-persian: 'Vazirmatn', sans-serif;
+    --font-family-english: 'Playfair Display', serif;
+    --font-family-cursive: 'Dancing Script', cursive;
+    --font-family-cursive: 'Great Vibes', cursive;
+    --font-family-cursive: 'Pinyon Script', cursive;
+    --font-family-cursive: 'Playfair Display', serif;
+
+    --font-size-xs: 0.75rem;    /* 12px */
+    --font-size-sm: 0.875rem;   /* 14px */
+    --font-size-base: 1rem;     /* 16px */
+    --font-size-lg: 1.125rem;   /* 18px */
+    --font-size-xl: 1.25rem;    /* 20px */
+    --font-size-2xl: 1.5rem;    /* 24px */
+    --font-size-3xl: 2rem;      /* 32px */
+    --font-size-4xl: 3rem;      /* 48px */
+
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.6;
+    --line-height-relaxed: 1.8;
+
+    /* 📏 Spacing Scale (4px base) */
+    --spacing-xs: 0.25rem;   /* 4px */
+    --spacing-sm: 0.5rem;    /* 8px */
+    --spacing-md: 1rem;      /* 16px */
+    --spacing-lg: 1.5rem;    /* 24px */
+    --spacing-xl: 2rem;      /* 32px */
+    --spacing-2xl: 3rem;     /* 48px */
+    --spacing-3xl: 4rem;     /* 64px */
+    --spacing-4xl: 6rem;     /* 96px */
+
+    /* 🎯 Border Radius */
+    --radius-sm: 0.375rem;   /* 6px */
+    --radius-md: 0.75rem;    /* 12px */
+    --radius-lg: 1rem;       /* 16px */
+    --radius-xl: 1.5rem;     /* 24px */
+    --radius-2xl: 2rem;      /* 32px */
+    --radius-full: 9999px;
+
+    /* 🌫️ Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.5);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    /* ⚡ Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 500ms ease;
+
+    /* 📚 Z-Index Scale */
+    --z-base: 1;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-loading: 9999;
+    --z-modal: 1000;
+
+    /* 📐 Layout */
+    --container-max: 1200px;
+    --header-height: 70px;
+    --bottom-nav-height: 80px;
+}
+
+/* ☀️ Light Theme */
+[data-theme="light"] {
+    --color-bg-primary:#e9ecef;
+    --color-bg-secondary: #ffffff;
+    --color-bg-tertiary: #e9ecef;
+
+    --color-text-primary: #0a0e27;
+    --color-text-secondary: #495057;
+    --color-text-muted: #6c757d;
+
+    --color-accent: #f4d03f;
+    --color-accent-soft: rgba(244, 208, 63, 0.15);
+
+    /* Glass Effects - Light */
+    --color-glass-bg: rgba(255, 255, 255, 0.7);
+    --color-glass-bg-hover: rgba(255, 255, 255, 0.85);
+    --color-glass-border: rgba(0, 0, 0, 0.05);
+    --color-glass-border-hover: rgba(0, 0, 0, 0.1);
+
+    /* Galaxy Colors - Light */
+    --galaxy-1: #e9ecef;
+    --galaxy-2: #dee2e6;
+    --galaxy-3: #ced4da;
+    --galaxy-star: #0a0e27;
+
+    /* Shadows - Light */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.12);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,78 @@
+/* ===================================
+   🎨 Base Styles - Fonts & Typography
+   =================================== */
+
+/* 1. Import Fonts (با display: swap برای پرفورمنس بهتر) */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+/* 2. Body Setup */
+body {
+    font-family: var(--font-family-persian);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    direction: rtl;
+    min-height: 100vh;
+
+    /* انیمیشن نرم برای تغییر تم Dark/Light */
+    transition: background-color var(--transition-normal),
+                color var(--transition-normal);
+}
+
+/* 3. Font Utility Classes */
+.font-brand {
+    font-family: var(--font-family-english);
+    letter-spacing: 0.02em;
+}
+
+.font-cursive {
+    font-family: var(--font-family-cursive);
+    letter-spacing: 0.05em;
+}
+
+/* 4. Headings Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-base); }
+
+/* 5. Paragraphs & Text */
+p {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-secondary);
+}
+
+strong, b {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+}
+
+/* 6. Links */
+a {
+    color: var(--color-accent);
+    transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+/* 7. Custom Selection (وقتی کاربر متنی رو انتخاب می‌کنه) */
+::selection {
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+}

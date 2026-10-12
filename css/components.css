@@ -1,0 +1,128 @@
+/* ===================================
+   🧩 Reusable Components
+   =================================== */
+
+/* 1. Glass Card - افکت شیشه‌ای اصلی */
+.glass-card {
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%); /* برای Safari */
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-glass);
+    transition: all var(--transition-normal);
+}
+
+.glass-card:hover {
+    background: var(--color-glass-bg-hover);
+    border-color: var(--color-glass-border-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* 2. Buttons - انواع دکمه */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-family: var(--font-family-persian);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    border: 1px solid transparent;
+    text-decoration: none;
+}
+
+/* دکمه اصلی (طلایی) */
+.btn--primary {
+    background: var(--color-accent);
+    color: #0a0e27; /* رنگ تیره برای کنتراست روی طلایی */
+    font-weight: var(--font-weight-bold);
+}
+
+.btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(244, 208, 63, 0.3); /* سایه طلایی */
+    filter: brightness(1.1);
+}
+
+/* دکمه شیشه‌ای */
+.btn--glass {
+    background: var(--color-glass-bg);
+    border-color: var(--color-glass-border);
+    color: var(--color-text-primary);
+}
+
+.btn--glass:hover {
+    background: var(--color-glass-bg-hover);
+    border-color: var(--color-glass-border-hover);
+    transform: translateY(-2px);
+}
+
+/* سایزهای دکمه */
+.btn--sm { padding: var(--spacing-xs) var(--spacing-md); font-size: var(--font-size-sm); }
+.btn--lg { padding: var(--spacing-lg) var(--spacing-2xl); font-size: var(--font-size-lg); }
+
+/* 3. Inputs - فیلدهای ورودی شیشه‌ای (برای سرچ) */
+.input-glass {
+    background: var(--color-glass-bg);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-full);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    color: var(--color-text-primary);
+    font-family: var(--font-family-persian);
+    outline: none;
+    width: 100%;
+    transition: all var(--transition-normal);
+}
+
+.input-glass::placeholder {
+    color: var(--color-text-muted);
+}
+
+.input-glass:focus {
+    border-color: var(--color-accent);
+    background: var(--color-glass-bg-hover);
+    box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+/* 4. Badges - برچسب‌های کوچک */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-full);
+    background: var(--color-accent-soft);
+    color: var(--color-accent);
+}
+
+/* 5. Theme Toggle Button - دکمه تغییر تم */
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: var(--color-glass-bg);
+    border: 1px solid var(--color-glass-border);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.theme-toggle:hover {
+    background: var(--color-glass-bg-hover);
+    transform: rotate(15deg);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+}

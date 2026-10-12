@@ -1,0 +1,77 @@
+/* ===================================
+   🔄 Modern CSS Reset
+   =================================== */
+
+/* 1. Box Model: همه چیز border-box باشه تا محاسبه عرض/ارتفاع راحت‌تر بشه */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Smooth Scroll: اسکرول نرم در کل صفحه */
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%; /* جلوگیری از زوم خودکار متن در iOS */
+}
+
+/* 3. Body: حذف margin پیش‌فرض */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeLegibility; /* خوانایی بهتر فونت‌ها */
+    -webkit-font-smoothing: antialiased; /* نرم‌تر شدن فونت در مک/iOS */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. Media Elements: ریسپانسیو بودن تصاویر و ویدیوها */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 5. Form Elements: ارث‌بری فونت و رنگ از والد */
+input, button, textarea, select {
+    font: inherit;
+    color: inherit;
+}
+
+/* 6. Buttons: حذف استایل‌های زشت پیش‌فرض مرورگر */
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* 7. Lists: حذف bullet و numbering پیش‌فرض */
+ul, ol {
+    list-style: none;
+}
+
+/* 8. Links: حذف underline پیش‌فرض */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 9. Tables: حذف فاصله‌های اضافی */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 10. Accessibility: استایل فوکوس فقط برای کیبورد (نه موس) */
+:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* 11. Respect Reduced Motion: احترام به کاربرانی که انیمیشن اذیتشون می‌کنه */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
